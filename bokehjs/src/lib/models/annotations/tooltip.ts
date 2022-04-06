@@ -22,7 +22,7 @@ export class TooltipView extends AnnotationView {
     this.stylesheet_el = style({}, ...this.styles())
     this.shadow_el.appendChild(this.stylesheet_el)
     undisplay(this.el)
-    this.plot_view.canvas_view.add_overlay(this.el)
+    this.canvas.add_overlay(this.el)
   }
 
   empty(): void {
