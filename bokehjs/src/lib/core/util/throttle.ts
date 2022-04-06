@@ -7,18 +7,25 @@
  * @param wait [number] time in milliseconds to use for window
  * @return [function] throttled function
  */
-type TimeoutID = number
+type ID = number
 
-export function throttle(func: () => void, wait: number): () => Promise<void> {
-  let timeout: TimeoutID | null = null
+export type ThrottledFn = {
+  (): Promise<void>
+  stop(): void
+}
+
+export function throttle(func: () => void, wait: number): ThrottledFn {
+  let timeout: ID | null = null
+  let request: ID | null = null
   let previous = 0
   let pending = false
 
-  return function() {
+  const fn = function() {
     return new Promise<void>((resolve, reject) => {
       const later = function() {
         previous = Date.now()
         timeout = null
+        request = null
         pending = false
         try {
           func()
@@ -35,12 +42,21 @@ export function throttle(func: () => void, wait: number): () => Promise<void> {
           clearTimeout(timeout)
         }
         pending = true
-        requestAnimationFrame(later)
+        request = requestAnimationFrame(later)
       } else if (timeout == null && !pending) {
-        timeout = setTimeout(() => requestAnimationFrame(later), remaining)
+        timeout = setTimeout(() => request = requestAnimationFrame(later), remaining)
       } else {
         resolve()
       }
     })
   }
+
+  fn.stop = function() {
+    if (timeout != null)
+      clearTimeout(timeout)
+    if (request != null)
+      cancelAnimationFrame(request)
+  }
+
+  return fn
 }
