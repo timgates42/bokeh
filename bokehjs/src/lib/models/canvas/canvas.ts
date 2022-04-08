@@ -207,6 +207,9 @@ export class CanvasView extends DOMView implements RenderingTarget {
   }
 
   resize(width: number, height: number): void {
+    if (this._bbox.width == width && this._bbox.height == height)
+      return
+
     this._bbox = new BBox({left: 0, top: 0, width, height})
     const {left, right, top, bottom} = this._bbox
 
@@ -231,6 +234,9 @@ export class CanvasView extends DOMView implements RenderingTarget {
     this.overlays.resize(width, height)
     extend(this.overlays_el.style, style)
     extend(this.events_el.style, style)
+
+    if (this.plot_views.length == 0) // REMOVE
+      this.paint_engine.request_repaint()
   }
 
   prepare_webgl(frame_box: FrameBox): void {
@@ -305,6 +311,14 @@ export class CanvasView extends DOMView implements RenderingTarget {
     return [] // XXX
   }
   */
+
+  request_repaint(): void {
+    this.paint_engine.request_repaint()
+  }
+
+  request_paint(to_invalidate: RendererView | RendererView[]): void {
+    this.paint_engine.request_paint(to_invalidate)
+  }
 }
 
 export namespace Canvas {
@@ -388,7 +402,12 @@ export class PaintEngine {
       this.schedule_paint()
   }
 
-  request_paint(to_invalidate: RendererView[] | RendererView | "everything"): void {
+  request_repaint(): void {
+    this.invalidate_painters("everything")
+    this.schedule_paint()
+  }
+
+  request_paint(to_invalidate: RendererView | RendererView[]): void {
     this.invalidate_painters(to_invalidate)
     this.schedule_paint()
   }
