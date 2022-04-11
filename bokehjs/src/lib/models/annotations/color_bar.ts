@@ -1,6 +1,6 @@
 import {Annotation, AnnotationView} from "./annotation"
 import {Title} from "./title"
-import {CartesianFrame} from "../canvas/cartesian_frame"
+import {CartesianFrame, CartesianFrameView} from "../canvas/cartesian_frame"
 import {Axis, LinearAxis, LogAxis, CategoricalAxis} from "../axes"
 import {Ticker} from "../tickers/ticker"
 import {BasicTicker, LogTicker, BinnedTicker, CategoricalTicker} from "../tickers"
@@ -42,7 +42,7 @@ export class ColorBarView extends AnnotationView {
 
   protected _image: HTMLCanvasElement
 
-  protected _frame: CartesianFrame
+  protected _frame: CartesianFrameView
 
   protected _axis: Axis
   protected _axis_view: Axis["__view_type__"]
@@ -59,6 +59,24 @@ export class ColorBarView extends AnnotationView {
   protected _major_scale: Scale
   protected _minor_range: Range
   protected _minor_scale: Scale
+
+  protected get _xy_coordinates() {
+    if (this.orientation == "horizontal") {
+      return {
+        x_scale: this._major_scale,
+        y_scale: this._minor_scale,
+        x_range: this._major_range,
+        y_range: this._minor_range,
+      }
+    } else {
+      return {
+        x_scale: this._minor_scale,
+        y_scale: this._major_scale,
+        x_range: this._minor_range,
+        y_range: this._major_range,
+      }
+    }
+  }
 
   private _orientation: Orientation
   get orientation(): Orientation {
@@ -175,6 +193,9 @@ export class ColorBarView extends AnnotationView {
       },
     }
 
+    const frame = new CartesianFrame(this._xy_coordinates)
+    this._frame = await build_view(frame, {parent: this})
+
     this._axis_view = await build_view(this._axis, {parent})
     this._title_view = await build_view(this._title, {parent})
   }
@@ -182,6 +203,7 @@ export class ColorBarView extends AnnotationView {
   override remove(): void {
     this._title_view.remove()
     this._axis_view.remove()
+    this._frame.remove()
     super.remove()
   }
 
@@ -334,6 +356,8 @@ export class ColorBarView extends AnnotationView {
         return orientation
     })()
 
+    this._frame.model.setv(this._xy_coordinates)
+
     const center_panel = new NodeLayout()
     const top_panel    = new VStack()
     const bottom_panel = new VStack()
@@ -345,14 +369,6 @@ export class ColorBarView extends AnnotationView {
     bottom_panel.absolute = true
     left_panel.absolute = true
     right_panel.absolute = true
-
-    const [x_scale, y_scale, x_range, y_range] = (() => {
-      if (orientation == "horizontal")
-        return [this._major_scale, this._minor_scale, this._major_range, this._minor_range] as const
-      else
-        return [this._minor_scale, this._major_scale, this._minor_range, this._major_range] as const
-    })()
-    this._frame = new CartesianFrame(x_scale, y_scale, x_range, y_range)
 
     center_panel.on_resize((bbox) => this._frame.set_geometry(bbox))
 

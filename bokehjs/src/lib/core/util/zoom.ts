@@ -1,7 +1,7 @@
 import {Interval} from "../types"
 import {clamp} from "./math"
 
-import {CartesianFrame} from "models/canvas/cartesian_frame"
+import {CartesianFrameView} from "models/canvas/cartesian_frame"
 import {Scale} from "models/scales/scale"
 
 // Module for zoom-related functions
@@ -23,7 +23,7 @@ export function get_info(scales: Map<string, Scale>, [sxy0, sxy1]: [number, numb
   return info
 }
 
-export function scale_range(frame: CartesianFrame, factor: number,
+export function scale_range(frame: CartesianFrameView, factor: number,
     h_axis: boolean = true, v_axis: boolean = true, center?: {x: number, y: number}): {
       xrs: Map<string, Interval>
       yrs: Map<string, Interval>
@@ -34,7 +34,7 @@ export function scale_range(frame: CartesianFrame, factor: number,
    * of the form required by ``PlotView.update_range``
    *
    * Parameters:
-   *   frame : CartesianFrame
+   *   frame : CartesianFrameView
    *   factor : Number
    *   h_axis : Boolean, optional
    *     whether to zoom the horizontal axis (default = true)
