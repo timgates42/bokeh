@@ -49,6 +49,8 @@ from _util_models import (
     ANGLE,
     FILL,
     HATCH,
+    HIGHLIGHT_FILL,
+    HIGHLIGHT_HATCH,
     HOVER_FILL,
     HOVER_HATCH,
     HOVER_LINE,
@@ -243,7 +245,11 @@ def test_BoxAnnotation() -> None:
         "top",
         "top_units",
         "editable",
-    ], LINE, FILL, HATCH, HOVER_LINE, HOVER_FILL, HOVER_HATCH)
+        "highlight",
+    ], LINE, FILL, HATCH,
+       HOVER_LINE, HOVER_FILL, HOVER_HATCH,
+       HIGHLIGHT_FILL, HIGHLIGHT_HATCH,
+    )
 
 
 def test_Band() -> None:
