@@ -234,6 +234,7 @@ __all__ = (
     'MathString',
     'MinMaxBounds',
     'NonEmpty',
+    'NonNegative',
     'NonNegativeInt',
     'NonNullable',
     'Nothing',
@@ -346,6 +347,7 @@ from .property.nullable import Nullable; Nullable
 from .property.numeric import Angle; Angle
 from .property.numeric import Byte; Byte
 from .property.numeric import Interval; Interval
+from .property.numeric import NonNegative; NonNegative
 from .property.numeric import NonNegativeInt; NonNegativeInt
 from .property.numeric import Percent; Percent
 from .property.numeric import PositiveInt; PositiveInt

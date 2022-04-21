@@ -90,6 +90,7 @@ ALL = (
     'MathString',
     'MinMaxBounds',
     'NonEmpty',
+    'NonNegative',
     'NonNegativeInt',
     'NonNullable',
     'Nothing',

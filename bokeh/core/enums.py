@@ -130,6 +130,7 @@ __all__ = (
     'PaddingUnits',
     'Palette',
     'Place',
+    'RadiusDimension',
     'RenderLevel',
     'ResetPolicy',
     'RoundingFunction',
@@ -420,6 +421,9 @@ Palette = enumeration(*palettes.__palettes__)
 #:
 PlaceType = Literal["above", "below", "left", "right", "center"]
 Place = enumeration(PlaceType)
+
+#:
+RadiusDimension = enumeration("x", "y", "min", "max")
 
 #: Specify a position in the render order for a Bokeh renderer
 RenderLevel = enumeration("image", "underlay", "glyph", "guide", "annotation", "overlay")

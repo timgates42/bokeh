@@ -20,10 +20,20 @@ log = logging.getLogger(__name__)
 # Imports
 #-----------------------------------------------------------------------------
 
+# Standard library imports
+import numbers
+from typing import Any, TypeVar
+
 # Bokeh imports
-from .bases import ParameterizedProperty
+from .bases import (
+    Init,
+    ParameterizedProperty,
+    Property,
+    SingleParameterizedProperty,
+    TypeOrInst,
+)
 from .primitive import Float, Int
-from .singletons import Undefined
+from .singletons import Intrinsic, Undefined
 
 #-----------------------------------------------------------------------------
 # Globals and constants
@@ -33,15 +43,31 @@ __all__ = (
     'Angle',
     'Byte',
     'Interval',
+    'NonNegative',
     'NonNegativeInt',
     'Percent',
     'PositiveInt',
     'Size',
 )
 
+T = TypeVar("T", bound=numbers.Number)
+
 #-----------------------------------------------------------------------------
 # General API
 #-----------------------------------------------------------------------------
+
+class NonNegative(SingleParameterizedProperty[T]):
+    """ A property accepting a value of some other type while having undefined default. """
+
+    def __init__(self, type_param: TypeOrInst[Property[T]], *, default: Init[T] = Intrinsic,
+            help: str | None = None, serialized: bool | None = None, readonly: bool = False) -> None:
+        super().__init__(type_param, default=default, help=help, serialized=serialized, readonly=readonly)
+
+    def validate(self, value: Any, detail: bool = True) -> None:
+        super().validate(value, detail)
+
+        if value < 0:
+            raise ValueError(f"expected a non-negative number, got {value!r}")
 
 class NonNegativeInt(Int):
     """ Accept non-negative integers. """
