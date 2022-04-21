@@ -115,6 +115,7 @@ Container Properties
 .. autoclass:: List
 .. autoclass:: RelativeDelta
 .. autoclass:: Seq
+.. autoclass:: Set
 .. autoclass:: Tuple
 .. autoclass:: RestrictedDict
 
@@ -251,6 +252,7 @@ __all__ = (
     'RelativeDelta',
     'RestrictedDict',
     'Seq',
+    'Set',
     'Size',
     'SizeSpec',
     'String',
@@ -289,6 +291,7 @@ from .property.container import Dict; Dict
 from .property.container import List; List
 from .property.container import NonEmpty; NonEmpty
 from .property.container import Seq; Seq
+from .property.container import Set; Set
 from .property.container import Tuple; Tuple
 from .property.container import RelativeDelta; RelativeDelta
 from .property.container import RestrictedDict; RestrictedDict

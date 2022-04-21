@@ -108,6 +108,7 @@ ALL = (
     'RelativeDelta',
     'RestrictedDict',
     'Seq',
+    'Set',
     'Size',
     'SizeSpec',
     'String',
