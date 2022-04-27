@@ -156,7 +156,7 @@ export class HoverToolView extends InspectToolView {
 
   get computed_renderers(): DataRenderer[] {
     const {renderers} = this.model
-    const all_renderers = this.plot_model.data_renderers
+    const all_renderers = this.plot_view.frame.data_renderers.map((rv) => rv.model)
     return compute_renderers(renderers, all_renderers)
   }
 
