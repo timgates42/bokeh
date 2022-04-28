@@ -1,7 +1,6 @@
-import {Model} from "../../model"
+import {Layout} from "./layout"
 import {Signal} from "core/signaling"
 import {Color} from "core/types"
-import {Align, SizingMode} from "core/enums"
 import {position, classes, extents, undisplayed} from "core/dom"
 import {logger} from "core/logging"
 import {isNumber, isArray} from "core/util/types"
@@ -311,16 +310,14 @@ export abstract class LayoutDOMView extends DOMComponentView {
       sizing.aspect = aspect_ratio
 
     const {margin} = this.model
-    if (margin != null) {
-      if (isNumber(margin))
-        sizing.margin = {top: margin, right: margin, bottom: margin, left: margin}
-      else if (margin.length == 2) {
-        const [vertical, horizontal] = margin
-        sizing.margin = {top: vertical, right: horizontal, bottom: vertical, left: horizontal}
-      } else {
-        const [top, right, bottom, left] = margin
-        sizing.margin = {top, right, bottom, left}
-      }
+    if (isNumber(margin))
+      sizing.margin = {top: margin, right: margin, bottom: margin, left: margin}
+    else if (margin.length == 2) {
+      const [vertical, horizontal] = margin
+      sizing.margin = {top: vertical, right: horizontal, bottom: vertical, left: horizontal}
+    } else {
+      const [top, right, bottom, left] = margin
+      sizing.margin = {top, right, bottom, left}
     }
 
     sizing.visible = this.model.visible
@@ -402,21 +399,9 @@ export type CSSInlineStyle = FilterStrings<CSSStyleDeclaration>
 export namespace LayoutDOM {
   export type Attrs = p.AttrsOf<Props>
 
-  export type Props = Model.Props & {
-    width: p.Property<number | null>
-    height: p.Property<number | null>
-    min_width: p.Property<number | null>
-    min_height: p.Property<number | null>
-    max_width: p.Property<number | null>
-    max_height: p.Property<number | null>
-    margin: p.Property<number | [number, number] | [number, number, number, number] | null>
-    width_policy: p.Property<SizingPolicy | "auto">
-    height_policy: p.Property<SizingPolicy | "auto">
-    aspect_ratio: p.Property<number | "auto" | null>
-    sizing_mode: p.Property<SizingMode | null>
+  export type Props = Layout.Props & {
     visible: p.Property<boolean>
     disabled: p.Property<boolean>
-    align: p.Property<Align | [Align, Align]>
     background: p.Property<Color | null>
     css_classes: p.Property<string[]>
     style: p.Property<CSSInlineStyle>
@@ -426,7 +411,7 @@ export namespace LayoutDOM {
 
 export interface LayoutDOM extends LayoutDOM.Attrs {}
 
-export abstract class LayoutDOM extends Model {
+export abstract class LayoutDOM extends Layout {
   override properties: LayoutDOM.Props
   override __view_type__: LayoutDOMView
 
@@ -436,24 +421,10 @@ export abstract class LayoutDOM extends Model {
 
   static {
     this.define<LayoutDOM.Props>((types) => {
-      const {Boolean, Number, String, Auto, Color, Array, Tuple, Dict, Or, Null, Nullable} = types
-      const Number2 = Tuple(Number, Number)
-      const Number4 = Tuple(Number, Number, Number, Number)
+      const {Boolean, String, Color, Array, Dict, Nullable} = types
       return {
-        width:         [ Nullable(Number), null ],
-        height:        [ Nullable(Number), null ],
-        min_width:     [ Nullable(Number), null ],
-        min_height:    [ Nullable(Number), null ],
-        max_width:     [ Nullable(Number), null ],
-        max_height:    [ Nullable(Number), null ],
-        margin:        [ Nullable(Or(Number, Number2, Number4)), [0, 0, 0, 0] ],
-        width_policy:  [ Or(SizingPolicy, Auto), "auto" ],
-        height_policy: [ Or(SizingPolicy, Auto), "auto" ],
-        aspect_ratio:  [ Or(Number, Auto, Null), null ],
-        sizing_mode:   [ Nullable(SizingMode), null ],
         visible:       [ Boolean, true ],
         disabled:      [ Boolean, false ],
-        align:         [ Or(Align, Tuple(Align, Align)), "start" ],
         background:    [ Nullable(Color), null ],
         css_classes:   [ Array(String), [] ],
         style:         [ Dict(String), {} ], // TODO: add validation for CSSInlineStyle

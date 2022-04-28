@@ -40,8 +40,7 @@ from ..core.properties import (
     InstanceDefault,
     Int,
     List,
-    NonNegativeInt,
-    Null,
+    NonNegative,
     Nullable,
     Override,
     Seq,
@@ -83,54 +82,42 @@ __all__ = (
 #-----------------------------------------------------------------------------
 
 @abstract
-class LayoutDOM(Model):
-    """ The base class for layoutable components.
-
-    """
+class Layout(Model):
+    """ """
 
     # explicit __init__ to support Init signatures
     def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
 
-    disabled = Bool(False, help="""
-    Whether the widget will be disabled when rendered.
-
-    If ``True``, the widget will be greyed-out and not responsive to UI events.
-    """)
-
-    visible = Bool(True, help="""
-    Whether the component will be visible and a part of a layout.
-    """)
-
-    width: int | None = Nullable(NonNegativeInt, help="""
+    width: int | None = Nullable(NonNegative(Int), help="""
     The width of the component (in pixels).
 
     This can be either fixed or preferred width, depending on width sizing policy.
     """)
 
-    height: int | None = Nullable(NonNegativeInt, help="""
+    height: int | None = Nullable(NonNegative(Int), help="""
     The height of the component (in pixels).
 
     This can be either fixed or preferred height, depending on height sizing policy.
     """)
 
-    min_width = Nullable(NonNegativeInt, help="""
+    min_width = Nullable(NonNegative(Int), help="""
     Minimal width of the component (in pixels) if width is adjustable.
     """)
 
-    min_height = Nullable(NonNegativeInt, help="""
+    min_height = Nullable(NonNegative(Int), help="""
     Minimal height of the component (in pixels) if height is adjustable.
     """)
 
-    max_width = Nullable(NonNegativeInt, help="""
+    max_width = Nullable(NonNegative(Int), help="""
     Maximal width of the component (in pixels) if width is adjustable.
     """)
 
-    max_height = Nullable(NonNegativeInt, help="""
+    max_height = Nullable(NonNegative(Int), help="""
     Maximal height of the component (in pixels) if height is adjustable.
     """)
 
-    margin = Nullable(Tuple(Int, Int, Int, Int), default=(0, 0, 0, 0), help="""
+    margin = Tuple(Int, Int, Int, Int, default=(0, 0, 0, 0), help="""
     Allows to create additional space around the component.
     The values in the tuple are ordered as follows - Margin-Top, Margin-Right, Margin-Bottom and Margin-Left,
     similar to CSS standards.
@@ -202,7 +189,7 @@ class LayoutDOM(Model):
 
     """)
 
-    aspect_ratio = Either(Null, Auto, Float, help="""
+    aspect_ratio = Nullable(Either(Auto, NonNegative(Float)), help="""
     Describes the proportional relationship between component's width and height.
 
     This works if any of component's dimensions are flexible in size. If set to
@@ -260,6 +247,26 @@ class LayoutDOM(Model):
     This property is useful only if this component is a child element of a layout
     (e.g. a grid). Self alignment can be overridden by the parent container (e.g.
     grid track align).
+    """)
+
+@abstract
+class LayoutDOM(Layout):
+    """ The base class for layoutable components.
+
+    """
+
+    # explicit __init__ to support Init signatures
+    def __init__(self, *args, **kwargs) -> None:
+        super().__init__(*args, **kwargs)
+
+    disabled = Bool(False, help="""
+    Whether the widget will be disabled when rendered.
+
+    If ``True``, the widget will be greyed-out and not responsive to UI events.
+    """)
+
+    visible = Bool(True, help="""
+    Whether the component will be visible and a part of a layout.
     """)
 
     background = Nullable(Color, help="""
