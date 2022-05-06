@@ -32,7 +32,7 @@ import {Dict} from "core/util/object"
 import {SerializableState} from "core/view"
 
 import {View} from "core/view"
-import {RenderingTarget} from "models/renderers/renderer"
+import {RendererView, RenderingTarget} from "models/renderers/renderer"
 
 const MINOR_DIM = 25
 const MAJOR_DIM_MIN_SCALAR = 0.3
@@ -188,11 +188,11 @@ export class ColorBarView extends AnnotationView {
       request_layout() {
         self.parent.request_layout()
       },
-      request_paint() {
-        self.parent.request_paint(self)
+      request_repaint() {
+        self.parent.request_repaint()
       },
-      request_render() {
-        self.request_paint()
+      request_paint(to_invalidate: RendererView | RendererView[] = self) {
+        self.parent.request_paint(to_invalidate)
       },
     }
 
@@ -247,8 +247,8 @@ export class ColorBarView extends AnnotationView {
       this._apply_axis_properties()
       // TODO?: this.plot_view.invalidate_layout()
     })
-    this.connect(this._ticker.change, () => this.request_render())
-    this.connect(this._formatter.change, () => this.request_render())
+    this.connect(this._ticker.change, () => this.request_paint())
+    this.connect(this._formatter.change, () => this.request_paint())
     this.connect(this.model.properties.color_mapper.change, async () => {
       this._title_view.remove()
       this._axis_view.remove()
@@ -273,7 +273,7 @@ export class ColorBarView extends AnnotationView {
       }
 
       this._set_canvas_image()
-      this.plot_view.request_layout() // this.request_render()
+      this.plot_view.request_layout() // this.request_paint()
     })
   }
 

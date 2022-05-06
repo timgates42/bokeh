@@ -23,7 +23,7 @@ export class Text extends VisualProperties {
     const font = this.font_value()
 
     if (!fonts.check(font)) {
-      fonts.load(font).then(() => this.obj.request_render())
+      fonts.load(font).then(() => this.obj.request_paint())
     }
   }
 
@@ -84,7 +84,7 @@ export class TextScalar extends VisualUniforms {
     const font = this.font_value()
 
     if (!fonts.check(font)) {
-      fonts.load(font).then(() => this.obj.request_render())
+      fonts.load(font).then(() => this.obj.request_paint())
     }
   }
 
@@ -138,7 +138,7 @@ export class TextVector extends VisualUniforms {
     const font = this.font_value(i)
 
     if (!fonts.check(font)) {
-      fonts.load(font).then(() => this.obj.request_render())
+      fonts.load(font).then(() => this.obj.request_paint())
     }
   }
 
