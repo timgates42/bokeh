@@ -379,6 +379,7 @@ class PanTool(Drag):
 
     .. |pan_icon| image:: /_images/icons/Pan.png
         :height: 24px
+        :alt:
 
     '''
 
@@ -418,6 +419,7 @@ class RangeTool(Drag):
 
     .. |range_icon| image:: /_images/icons/Range.png
         :height: 24px
+
 
     '''
 
@@ -472,6 +474,7 @@ class WheelPanTool(Scroll):
 
     .. |wheel_pan_icon| image:: /_images/icons/WheelPan.png
         :height: 24px
+        :alt:
 
     '''
 
@@ -497,6 +500,7 @@ class WheelZoomTool(Scroll):
 
     .. |wheel_zoom_icon| image:: /_images/icons/WheelZoom.png
         :height: 24px
+        :alt:
 
     '''
 
@@ -565,6 +569,7 @@ class SaveTool(ActionTool):
 
     .. |save_icon| image:: /_images/icons/Save.png
         :height: 24px
+        :alt:
 
     '''
 
@@ -587,6 +592,7 @@ class ResetTool(ActionTool):
 
     .. |reset_icon| image:: /_images/icons/Reset.png
         :height: 24px
+        :alt:
 
     '''
 
@@ -605,6 +611,7 @@ class TapTool(Tap, SelectTool):
 
     .. |tap_icon| image:: /_images/icons/Tap.png
         :height: 24px
+        :alt:
 
     .. note::
         Selections can be comprised of multiple regions, even those
@@ -674,6 +681,7 @@ class CrosshairTool(InspectTool):
 
     .. |crosshair_icon| image:: /_images/icons/Crosshair.png
         :height: 24px
+        :alt:
 
     '''
 
@@ -724,6 +732,7 @@ class BoxZoomTool(Drag):
 
     .. |box_zoom_icon| image:: /_images/icons/BoxZoom.png
         :height: 24px
+        :alt:
 
     .. note::
         ``BoxZoomTool`` is incompatible with ``GMapPlot`` due to the manner in
@@ -772,6 +781,7 @@ class ZoomInTool(ActionTool):
 
     .. |zoom_in_icon| image:: /_images/icons/ZoomIn.png
         :height: 24px
+        :alt:
 
     '''
 
@@ -799,6 +809,7 @@ class ZoomOutTool(ActionTool):
 
     .. |zoom_out_icon| image:: /_images/icons/ZoomOut.png
         :height: 24px
+        :alt:
 
     '''
 
@@ -837,6 +848,7 @@ class BoxSelectTool(Drag, SelectTool):
 
     .. |box_select_icon| image:: /_images/icons/BoxSelect.png
         :height: 24px
+        :alt:
 
     '''
 
@@ -899,6 +911,7 @@ class LassoSelectTool(Drag, SelectTool):
 
     .. |lasso_select_icon| image:: /_images/icons/LassoSelect.png
         :height: 24px
+        :alt:
 
     '''
 
@@ -935,6 +948,7 @@ class PolySelectTool(Tap, SelectTool):
 
     .. |poly_select_icon| image:: /_images/icons/PolygonSelect.png
         :height: 24px
+        :alt:
 
     '''
 
@@ -1101,6 +1115,7 @@ class HoverTool(InspectTool):
 
     .. |hover_icon| image:: /_images/icons/Hover.png
         :height: 24px
+        :alt:
 
     '''
 
@@ -1294,6 +1309,7 @@ class UndoTool(ActionTool):
 
     .. |undo_icon| image:: /_images/icons/Undo.png
         :height: 24px
+        :alt:
 
     '''
 
@@ -1308,6 +1324,7 @@ class RedoTool(ActionTool):
 
     .. |redo_icon| image:: /_images/icons/Redo.png
         :height: 24px
+        :alt:
 
     '''
 
@@ -1395,6 +1412,7 @@ class BoxEditTool(EditTool, Drag, Tap):
 
     .. |box_edit_icon| image:: /_images/icons/BoxEdit.png
         :height: 24px
+        :alt:
     '''
 
     # explicit __init__ to support Init signatures
@@ -1459,6 +1477,8 @@ class PointDrawTool(EditTool, Drag, Tap):
 
     .. |point_draw_icon| image:: /_images/icons/PointDraw.png
         :height: 24px
+        :alt:
+
     '''
 
     # explicit __init__ to support Init signatures
@@ -1521,6 +1541,8 @@ class PolyDrawTool(PolyTool, Drag, Tap):
 
     .. |poly_draw_icon| image:: /_images/icons/PolyDraw.png
         :height: 24px
+        :alt:
+
     '''
 
     # explicit __init__ to support Init signatures
@@ -1568,6 +1590,8 @@ class FreehandDrawTool(EditTool, Drag, Tap):
 
     .. |freehand_draw_icon| image:: /_images/icons/FreehandDraw.png
         :height: 24px
+        :alt:
+
     '''
 
     # explicit __init__ to support Init signatures
@@ -1620,6 +1644,8 @@ class PolyEditTool(PolyTool, Drag, Tap):
 
     .. |poly_edit_icon| image:: /_images/icons/PolyEdit.png
         :height: 24px
+        :alt:
+
     '''
 
     # explicit __init__ to support Init signatures
@@ -1660,6 +1686,8 @@ class LineEditTool(EditTool, Drag, Tap):
 
     .. |line_edit_icon| image:: /_images/icons/LineEdit.png
         :height: 24px
+        :alt:
+
     '''
 
     # explicit __init__ to support Init signatures

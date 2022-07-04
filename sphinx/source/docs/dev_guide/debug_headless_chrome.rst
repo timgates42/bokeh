@@ -45,6 +45,7 @@ Chrome:
           preconfigured version of headless Chrome.
     :align: center
     :width: 100%
+    :alt:
 
 See :ref:`contributor_guide_testing_local_javascript_devtools` for more
 information on Bokeh's devtools server.

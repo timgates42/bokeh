@@ -8,267 +8,267 @@
     {
       "path": "examples/plotting/file/latex_blackbody_radiation.py",
       "name": "latex_blackbody_radiation",
-      "alt": ""
+      "alt": " "
     },
     {
       "path": "examples/plotting/file/latex_normal_distribution.py",
       "name": "latex_normal_distribution",
-      "alt": ""
+      "alt": " "
     },
     {
       "path": "examples/plotting/file/network_graph.py",
       "name": "network_graph",
-      "alt": ""
+      "alt": " "
     },
     {
       "path": "examples/plotting/file/hexbin.py",
       "name": "hexbin",
-      "alt": ""
+      "alt": " "
     },
     {
       "path": "examples/plotting/file/sprint.py",
       "name": "sprint",
-      "alt": ""
+      "alt": " "
     },
     {
       "path": "examples/plotting/file/ridgeplot.py",
       "name": "ridgeplot",
-      "alt": ""
+      "alt": " "
     },
     {
       "path": "examples/plotting/file/hex_tile.py",
       "name": "hex_tile",
-      "alt": ""
+      "alt": " "
     },
     {
       "path": "examples/plotting/file/bar_colormapped.py",
       "name": "bar_colormapped",
-      "alt": ""
+      "alt": " "
     },
     {
       "path": "examples/plotting/file/bar_intervals.py",
       "name": "bar_intervals",
-      "alt": ""
+      "alt": " "
     },
     {
       "path": "examples/plotting/file/range_tool.py",
       "name": "range_tool",
-      "alt": ""
+      "alt": " "
     },
     {
       "path": "examples/plotting/file/pie.py",
       "name": "pie_chart",
-      "alt": ""
+      "alt": " "
     },
     {
       "path": "examples/plotting/file/bar_mixed.py",
       "name": "bar_mixed",
-      "alt": ""
+      "alt": " "
     },
     {
       "path": "examples/plotting/file/bar_nested_colormapped.py",
       "name": "bar_nested_colormapped",
-      "alt": ""
+      "alt": " "
     },
     {
       "path": "examples/plotting/file/categorical_heatmap.py",
       "name": "categorical_heatmap",
-      "alt": ""
+      "alt": " "
     },
     {
       "path": "examples/plotting/file/schrodinger.py",
       "name": "schrodinger",
-      "alt": ""
+      "alt": " "
     },
     {
       "path": "examples/plotting/file/bar_pandas_groupby_colormapped.py",
       "name": "bar_pandas_groupby_colormapped",
-      "alt": ""
+      "alt": " "
     },
     {
       "path": "examples/plotting/file/bar_pandas_groupby_nested.py",
       "name": "bar_pandas_groupby_nested",
-      "alt": ""
+      "alt": " "
     },
     {
       "path": "examples/plotting/file/bar_stacked.py",
       "name": "bar_stacked",
-      "alt": ""
+      "alt": " "
     },
     {
       "path": "examples/plotting/file/bar_stacked_split.py",
       "name": "bar_stacked_split",
-      "alt": ""
+      "alt": " "
     },
     {
       "path": "examples/plotting/file/categorical_scatter_jitter.py",
       "name": "categorical_scatter_jitter",
-      "alt": ""
+      "alt": " "
     },
     {
       "path": "examples/plotting/file/bar_nested.py",
       "name": "bar_nested",
-      "alt": ""
+      "alt": " "
     },
     {
       "path": "examples/plotting/file/candlestick.py",
       "name": "candlestick",
-      "alt": ""
+      "alt": " "
     },
     {
       "path": "examples/plotting/file/legend.py",
       "name": "legend",
-      "alt": ""
+      "alt": " "
     },
     {
       "path": "examples/plotting/file/bar_colors.py",
       "name": "bar_colors",
-      "alt": ""
+      "alt": " "
     },
     {
       "path": "examples/plotting/file/box_annotation.py",
       "name": "box_annotation",
-      "alt": ""
+      "alt": " "
     },
     {
       "path": "examples/plotting/file/les_mis.py",
       "name": "les_mis",
-      "alt": ""
+      "alt": " "
     },
     {
       "path": "examples/plotting/file/bar_dodged.py",
       "name": "bar_dodged",
-      "alt": ""
+      "alt": " "
     },
     {
       "path": "examples/plotting/file/unemployment.py",
       "name": "unemployment",
-      "alt": ""
+      "alt": " "
     },
     {
       "path": "examples/plotting/file/stocks.py",
       "name": "stocks",
-      "alt": ""
+      "alt": " "
     },
     {
       "path": "examples/plotting/file/hatch_grid_band.py",
       "name": "hatch_grid_band",
-      "alt": ""
+      "alt": " "
     },
     {
       "path": "examples/plotting/file/image_rgba.py",
       "name": "image_rgba",
-      "alt": ""
+      "alt": " "
     },
     {
       "path": "examples/plotting/file/dotplot.py",
       "name": "dotplot",
-      "alt": ""
+      "alt": " "
     },
     {
       "path": "examples/plotting/file/periodic.py",
       "name": "periodic",
-      "alt": ""
+      "alt": " "
     },
     {
       "path": "examples/plotting/file/histogram.py",
       "name": "histogram",
-      "alt": ""
+      "alt": " "
     },
     {
       "path": "examples/plotting/file/image.py",
       "name": "image",
-      "alt": ""
+      "alt": " "
     },
     {
       "path": "examples/plotting/file/slider.py",
       "name": "slider",
-      "alt": ""
+      "alt": " "
     },
     {
       "path": "examples/plotting/file/jitter.py",
       "name": "jitter",
-      "alt": ""
+      "alt": " "
     },
     {
       "path": "examples/plotting/file/lorenz.py",
       "name": "lorenz",
-      "alt": ""
+      "alt": " "
     },
     {
       "path": "examples/plotting/file/color_scatter.py",
       "name": "color_scatter",
-      "alt": ""
+      "alt": " "
     },
     {
       "path": "examples/plotting/file/color_sliders.py",
       "name": "color_sliders",
-      "alt": ""
+      "alt": " "
     },
     {
       "path": "examples/models/file/iris_splom.py",
       "name": "iris_splom",
-      "alt": ""
+      "alt": " "
     },
     {
       "path": "examples/models/file/anscombe.py",
       "name": "anscombe",
-      "alt": ""
+      "alt": " "
     },
     {
       "path": "examples/plotting/file/texas.py",
       "name": "texas",
-      "alt": ""
+      "alt": " "
     },
     {
       "path": "examples/plotting/file/markers.py",
       "name": "markers",
-      "alt": ""
+      "alt": " "
     },
     {
       "path": "examples/plotting/file/burtin.py",
       "name": "burtin",
-      "alt": ""
+      "alt": " "
     },
     {
       "path": "examples/plotting/file/bar_basic.py",
       "name": "bar_basic",
-      "alt": ""
+      "alt": " "
     },
     {
       "path": "examples/plotting/file/stacked_area.py",
       "name": "stacked_area",
-      "alt": ""
+      "alt": " "
     },
     {
       "path": "examples/plotting/file/elements.py",
       "name": "elements",
-      "alt": ""
+      "alt": " "
     },
     {
       "path": "examples/plotting/file/boxplot.py",
       "name": "boxplot",
-      "alt": ""
+      "alt": " "
     },
     {
       "path": "examples/plotting/file/logplot.py",
       "name": "logplot",
-      "alt": ""
+      "alt": " "
     },
     {
       "path": "examples/plotting/file/eclipse.py",
       "name": "eclipse",
-      "alt": ""
+      "alt": " "
     },
     {
       "path": "examples/plotting/file/iris.py",
       "name": "iris",
-      "alt": ""
+      "alt": " "
     },
     {
       "path": "examples/plotting/file/bessel.py",
       "name": "bessel",
-      "alt": ""
+      "alt": " "
      }
   ]
 }
