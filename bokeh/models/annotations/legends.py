@@ -225,6 +225,16 @@ class ColorBar(Annotation):
 
     background_fill_alpha = Override(default=0.95)
 
+    low_cutoff = Nullable(Float, help="""
+    The lowest value to show in the color bar. The whole of the color entry
+    containing this value is shown.
+    """)
+
+    high_cutoff = Nullable(Float, help="""
+    The highest value to show in the color bar. The whole of the color entry
+    containing this value is shown.
+    """)
+
 class LegendItem(Model):
     '''
 
